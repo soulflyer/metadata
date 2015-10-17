@@ -27,6 +27,7 @@
   [metadata-map]
   (string/split (metadata-map "Keywords") #";"))
 
-(def testfile "/Users/iain/Pictures/Published/fullsize/2015/09/01-Dragon/IMG_6666.jpg")
-(def file (java.io.File. testfile))
-(getmeta file)
+;; (def filename "/Users/iain/Pictures/Published/fullsize/2015/09/01-Dragon/IMG_6666.jpg")
+;; (def file (java.io.File. filename))
+;; (getmeta file)
+;; (keywords (getmeta file))
