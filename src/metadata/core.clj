@@ -1,4 +1,5 @@
 (ns metadata.core
+  (:require [clojure.string :as string])
   (:import com.drew.metadata.Metadata
            com.drew.metadata.Directory
            com.drew.metadata.Tag
@@ -20,6 +21,11 @@
     (reduce (fn [list tags]
               (merge list (gettags tags)))
             acc (.getDirectories imagedata))))
+
+(defn keywords
+  "returns a vector of strings containing the keywords extracted from the metadata"
+  [metadata-map]
+  (string/split (metadata-map "Keywords") #";"))
 
 (def testfile "/Users/iain/Pictures/Published/fullsize/2015/09/01-Dragon/IMG_6666.jpg")
 (def file (java.io.File. testfile))
