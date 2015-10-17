@@ -1,4 +1,4 @@
-(ns metadata-extractor-test.core
+(ns metadata.core
   (:import com.drew.metadata.Metadata
            com.drew.metadata.Directory
            com.drew.metadata.Tag
@@ -11,14 +11,14 @@
        (assoc a (.getTagName b) (.getDescription b)))
      acc (.getTags taglist))))
 
-(defn accumulate-tags [list tags]
-  (merge list (gettags tags)))
-
 (defn getmeta
+  "Returns a hash-map containing the metadata from an image file.
+  Expects a java.io.File"
   [file]
   (let [imagedata (ImageMetadataReader/readMetadata file)
         acc {}]
-    (reduce accumulate-tags
+    (reduce (fn [list tags]
+              (merge list (gettags tags)))
             acc (.getDirectories imagedata))))
 
 (def testfile "/Users/iain/Pictures/Published/fullsize/2015/09/01-Dragon/IMG_6666.jpg")
