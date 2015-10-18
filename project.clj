@@ -1,4 +1,4 @@
-(defproject metadata "0.1.0-SNAPSHOT"
+(defproject metadata "0.1.1-SNAPSHOT"
   :description "Get matadata from image files"
   :url "https://github.com/soulflyer/metadata"
   :license {:name "Eclipse Public License"
